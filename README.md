@@ -24,5 +24,11 @@ To run:
 pytest --flake8
 ```
 
+## Mypy
+To run:
+```bash
+pytest --mypy
+```
+
 ## License
 MIT LICENSE
