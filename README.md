@@ -27,7 +27,7 @@ pytest --flake8
 ## Mypy
 To run:
 ```bash
-pytest --mypy
+mypy .
 ```
 
 ## License

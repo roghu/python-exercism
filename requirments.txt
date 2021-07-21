@@ -19,7 +19,6 @@ pyparsing==2.4.7
 pytest==6.2.4
 pytest-cov==2.12.1
 pytest-flake8==1.0.7
-pytest-mypy==0.8.1
 pytest-sugar==0.9.4
 regex==2021.7.6
 termcolor==1.1.0
