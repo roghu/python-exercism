@@ -18,5 +18,11 @@ To run coverage:
 pytest --cov=tests/
 ```
 
+## Flake8
+To run:
+```bash
+pytest --flake8
+```
+
 ## License
 MIT LICENSE
