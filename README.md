@@ -10,24 +10,24 @@ Solutions to [exercism](https://github.com/exercism/python).
 ## Tests
 To run test:
 ```bash
-pytest tests/
+tox
 ```
 
 To run coverage:
 ```bash
-pytest --cov=tests/
+tox -e coverage
 ```
 
 ## Flake8
 To run:
 ```bash
-pytest --flake8
+tox -e flake8
 ```
 
 ## Mypy
 To run:
 ```bash
-mypy .
+tox -e typing
 ```
 
 ## License
