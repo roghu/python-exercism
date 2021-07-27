@@ -28,3 +28,6 @@ jobs:
 
       - name: Flake8
         run: tox -e flake8
+
+      - name: typing
+        run: tox -e typing
