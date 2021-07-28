@@ -31,3 +31,10 @@ jobs:
 
       - name: typing
         run: tox -e typing
+
+      - name: Upload results to codecov
+        if: success()
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: true
