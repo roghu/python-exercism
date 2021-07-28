@@ -1,0 +1,40 @@
+name: Tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependences
+        run: |
+          python -m pip install -U pip setuptools wheel
+          python -m pip install tox-gh-actions
+          python -m pip install -r requirements.txt
+      - name: Tests
+        run: tox -e py
+
+      - name: Flake8
+        run: tox -e flake8
+
+      - name: typing
+        run: tox -e typing
+
+      - name: Upload results to codecov
+        if: success()
+        uses: codecov/codecov-action@v2
+        with:
+          files: ./coverage.xml
+          fail_ci_if_error: true
