@@ -18,12 +18,6 @@ To run test:
 tox
 ```
 
-To run coverage:
-
-```bash
-tox -e coverage
-```
-
 ## Flake8
 
 To run:
