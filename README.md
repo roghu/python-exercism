@@ -7,30 +7,39 @@
 Solutions to [exercism](https://github.com/exercism/python).
 
 ## Python Versions
+
 * 3.9
 
 ## Tests
+
 To run test:
+
 ```bash
 tox
 ```
 
 To run coverage:
+
 ```bash
 tox -e coverage
 ```
 
 ## Flake8
+
 To run:
+
 ```bash
 tox -e flake8
 ```
 
 ## Mypy
+
 To run:
+
 ```bash
 tox -e typing
 ```
 
 ## License
+
 MIT LICENSE
