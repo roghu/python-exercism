@@ -30,7 +30,6 @@ VERSES = [
 
 
 def verse(day: int) -> str:
-    print(day)
     result = [f"On the {DAYS[day]} day of Christmas my true love gave to me:"]
     for i in range(day, -1, -1):
         if day != 0 and i == 0:
@@ -43,6 +42,5 @@ def verse(day: int) -> str:
 def recite(start_verse: int, end_verse: int) -> list[str]:
     result = []
     for i in range(start_verse - 1, end_verse):
-        print(i)
         result.append(verse(i))
     return result
