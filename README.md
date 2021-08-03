@@ -10,29 +10,46 @@ Solutions to [exercism](https://github.com/exercism/python).
 
 * 3.9
 
+## Requirements
+
+* [Poetry](https://python-poetry.org)
+
+## Install Packages
+
+```bash
+poetry install
+```
+
 ## Tests
 
-To run test:
+To run unit tests:
 
 ```bash
-tox
+poetry run tox
 ```
 
-## Flake8
+### Flake8
 
 To run:
 
 ```bash
-tox -e flake8
+poetry run tox -e flake8
 ```
 
-## Mypy
+### Mypy
 
 To run:
 
 ```bash
-tox -e typing
+poetry run tox -e typing
 ```
+
+### All Tests
+
+```bash
+poetry run tox -e ALL
+```
+
 
 ## License
 
