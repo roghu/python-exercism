@@ -18,19 +18,32 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        uses: dschep/install-poetry-action@v1.2
+
+      - name: Cache Poetry virtualenv
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: ~/.virtualenvs
+          key: poetry-$
+          restore-keys: |
+            poetry-$
+
       - name: Install dependences
         run: |
-          python -m pip install -U pip setuptools wheel
           python -m pip install tox-gh-actions
-          python -m pip install -r requirements.txt
+          python -m poetry install
+
       - name: Tests
-        run: tox -e py
+        run: python -m poetry run tox -e py
 
       - name: Flake8
-        run: tox -e flake8
+        run: python -m poetry run tox -e flake8
 
       - name: typing
-        run: tox -e typing
+        run: python -m poetry tox -e typing
 
       - name: Upload results to codecov
         if: success()
