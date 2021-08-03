@@ -20,30 +20,30 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install Poetry
-        uses: dschep/install-poetry-action@v1.2
-
-      - name: Cache Poetry virtualenv
-        uses: actions/cache@v1
-        id: cache
+        uses: snok/install-poetry@v1
         with:
-          path: ~/.virtualenvs
-          key: poetry-$
-          restore-keys: |
-            poetry-$
+          virtualenvs-create: true
+          vritualenvs-in-project: true
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Install dependences
-        run: |
-          python -m pip install tox-gh-actions
-          python -m poetry install
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root
 
       - name: Tests
-        run: python -m poetry run tox -e py
+        run: poetry run tox -e py
 
       - name: Flake8
-        run: python -m poetry run tox -e flake8
+        run: poetry run tox -e flake8
 
       - name: typing
-        run: python -m poetry tox -e typing
+        run: poetry tox -e typing
 
       - name: Upload results to codecov
         if: success()
