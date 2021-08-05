@@ -12,7 +12,7 @@ name = "Roger Hughes"
 email = "roger@roghu.com"
 
 [tool.black]
-target-version = ['py38']
+target-version = ['py39']
 include = '\.pyi?$'
 exclude = '''
 
