@@ -2,12 +2,12 @@ from src.tournament import tally
 
 
 class TestTournament:
-    def test_just_the_header_if_no_input(self):
-        results = []
+    def test_just_the_header_if_no_input(self) -> None:
+        results: list[str] = []
         table = ["Team                           | MP |  W |  D |  L |  P"]
         assert tally(results) == table
 
-    def test_a_win_is_three_points_a_loss_is_zero_points(self):
+    def test_a_win_is_three_points_a_loss_is_zero_points(self) -> None:
         results = ["Allegoric Alaskans;Blithering Badgers;win"]
         table = [
             "Team                           | MP |  W |  D |  L |  P",
@@ -16,7 +16,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_a_win_can_also_be_expressed_as_a_loss(self):
+    def test_a_win_can_also_be_expressed_as_a_loss(self) -> None:
         results = ["Blithering Badgers;Allegoric Alaskans;loss"]
         table = [
             "Team                           | MP |  W |  D |  L |  P",
@@ -25,7 +25,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_a_different_team_can_win(self):
+    def test_a_different_team_can_win(self) -> None:
         results = ["Blithering Badgers;Allegoric Alaskans;win"]
         table = [
             "Team                           | MP |  W |  D |  L |  P",
@@ -34,7 +34,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_a_draw_is_one_point_each(self):
+    def test_a_draw_is_one_point_each(self) -> None:
         results = ["Allegoric Alaskans;Blithering Badgers;draw"]
         table = [
             "Team                           | MP |  W |  D |  L |  P",
@@ -43,7 +43,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_there_can_be_more_than_one_match(self):
+    def test_there_can_be_more_than_one_match(self) -> None:
         results = [
             "Allegoric Alaskans;Blithering Badgers;win",
             "Allegoric Alaskans;Blithering Badgers;win",
@@ -55,7 +55,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_there_can_be_more_than_one_winner(self):
+    def test_there_can_be_more_than_one_winner(self) -> None:
         results = [
             "Allegoric Alaskans;Blithering Badgers;loss",
             "Allegoric Alaskans;Blithering Badgers;win",
@@ -67,7 +67,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_there_can_be_more_than_two_teams(self):
+    def test_there_can_be_more_than_two_teams(self) -> None:
         results = [
             "Allegoric Alaskans;Blithering Badgers;win",
             "Blithering Badgers;Courageous Californians;win",
@@ -81,7 +81,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_typical_input(self):
+    def test_typical_input(self) -> None:
         results = [
             "Allegoric Alaskans;Blithering Badgers;win",
             "Devastating Donkeys;Courageous Californians;draw",
@@ -99,7 +99,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_incomplete_competition_not_all_pairs_have_played(self):
+    def test_incomplete_competition_not_all_pairs_have_played(self) -> None:
         results = [
             "Allegoric Alaskans;Blithering Badgers;loss",
             "Devastating Donkeys;Allegoric Alaskans;loss",
@@ -115,7 +115,7 @@ class TestTournament:
         ]
         assert tally(results) == table
 
-    def test_ties_broken_alphabetically(self):
+    def test_ties_broken_alphabetically(self) -> None:
         results = [
             "Courageous Californians;Devastating Donkeys;win",
             "Allegoric Alaskans;Blithering Badgers;win",

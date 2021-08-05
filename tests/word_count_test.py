@@ -2,13 +2,13 @@ from src.word_count import count_words
 
 
 class TestWordCount:
-    def test_count_one_word(self):
+    def test_count_one_word(self) -> None:
         assert count_words("word") == {"word": 1}
 
-    def test_count_one_of_each_word(self):
+    def test_count_one_of_each_word(self) -> None:
         assert count_words("one of each") == {"one": 1, "of": 1, "each": 1}
 
-    def test_multiple_occurrences_of_a_word(self):
+    def test_multiple_occurrences_of_a_word(self) -> None:
         assert count_words("one fish two fish red fish blue fish") == {
             "one": 1,
             "fish": 4,
@@ -17,13 +17,13 @@ class TestWordCount:
             "blue": 1,
         }
 
-    def test_handles_cramped_lists(self):
+    def test_handles_cramped_lists(self) -> None:
         assert count_words("one,two,three") == {"one": 1, "two": 1, "three": 1}
 
-    def test_handles_expanded_lists(self):
+    def test_handles_expanded_lists(self) -> None:
         assert count_words("one,\ntwo,\nthree") == {"one": 1, "two": 1, "three": 1}
 
-    def test_ignore_punctuation(self):
+    def test_ignore_punctuation(self) -> None:
         assert count_words("car: carpet as java: javascript!!&@$%^&") == {
             "car": 1,
             "carpet": 1,
@@ -32,13 +32,13 @@ class TestWordCount:
             "javascript": 1,
         }
 
-    def test_include_numbers(self):
+    def test_include_numbers(self) -> None:
         assert count_words("testing, 1, 2 testing") == {"testing": 2, "1": 1, "2": 1}
 
-    def test_normalize_case(self):
+    def test_normalize_case(self) -> None:
         assert count_words("go Go GO Stop stop") == {"go": 3, "stop": 2}
 
-    def test_with_apostrophes(self):
+    def test_with_apostrophes(self) -> None:
         assert count_words("First: don't laugh. Then: don't cry.") == {
             "first": 1,
             "don't": 2,
@@ -47,7 +47,7 @@ class TestWordCount:
             "cry": 1,
         }
 
-    def test_with_quotations(self):
+    def test_with_quotations(self) -> None:
         assert count_words("Joe can't tell between 'large' and large.") == {
             "joe": 1,
             "can't": 1,
@@ -57,7 +57,7 @@ class TestWordCount:
             "and": 1,
         }
 
-    def test_substrings_from_the_beginning(self):
+    def test_substrings_from_the_beginning(self) -> None:
         assert count_words("Joe can't tell between app, apple and a.") == {
             "joe": 1,
             "can't": 1,
@@ -69,20 +69,20 @@ class TestWordCount:
             "a": 1,
         }
 
-    def test_multiple_spaces_not_detected_as_a_word(self):
+    def test_multiple_spaces_not_detected_as_a_word(self) -> None:
         assert count_words(" multiple   whitespaces") == {
             "multiple": 1,
             "whitespaces": 1,
         }
 
-    def test_alternating_word_separators_not_detected_as_a_word(self):
+    def test_alternating_word_separators_not_detected_as_a_word(self) -> None:
         assert count_words(",\n,one,\n ,two \n 'three'") == {
             "one": 1,
             "two": 1,
             "three": 1,
         }
 
-    def test_tabs(self):
+    def test_tabs(self) -> None:
         assert count_words(
             "rah rah ah ah ah	roma roma ma	ga ga oh la la	want your bad romance"
         ) == {
@@ -99,7 +99,7 @@ class TestWordCount:
             "romance": 1,
         }
 
-    def test_non_alphanumeric(self):
+    def test_non_alphanumeric(self) -> None:
         assert count_words("hey,my_spacebar_is_broken") == {
             "hey": 1,
             "my": 1,
@@ -108,5 +108,5 @@ class TestWordCount:
             "broken": 1,
         }
 
-    def test_multiple_apostrophes_ignored(self):
+    def test_multiple_apostrophes_ignored(self) -> None:
         assert count_words("''hey''") == {"hey": 1}
