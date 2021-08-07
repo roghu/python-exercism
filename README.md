@@ -15,7 +15,7 @@ Solutions to [exercism](https://github.com/exercism/python).
 To run test:
 
 ```bash
-tox
+pytest tests/
 ```
 
 ## Flake8
@@ -23,7 +23,7 @@ tox
 To run:
 
 ```bash
-tox -e flake8
+pytest --flake8
 ```
 
 ## Mypy
@@ -31,7 +31,7 @@ tox -e flake8
 To run:
 
 ```bash
-tox -e typing
+pytest --mypy 
 ```
 
 ## License

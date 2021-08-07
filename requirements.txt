@@ -33,6 +33,5 @@ six==1.16.0
 termcolor==1.1.0
 toml==0.10.2
 tomli==1.0.4
-tox==3.24.0
 typing-extensions==3.10.0.0
 virtualenv==20.6.0
