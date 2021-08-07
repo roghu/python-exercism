@@ -4,7 +4,7 @@ import nox
 @nox.session
 def tests(session: nox.Session) -> None:
     session.run("pip", "install", "-r", "requirements.txt")
-    session.run("pytest", "-n", "2", "src/")
+    session.run("pytest", "-n", "2")
 
 
 @nox.session
@@ -22,5 +22,6 @@ def typing(session: nox.Session) -> None:
 @nox.session
 def coverage(session: nox.Session) -> None:
     session.run("pip", "install", "-r", "requirements.txt")
+    session.run("pytest", "-n", "2", "--cov", "src/")
     session.run("coverage", "xml")
     session.run("coverage", "report", "--show-missing")
