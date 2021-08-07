@@ -31,9 +31,12 @@ jobs:
       - name: typing
         run: nox -s typing
 
-      - name: Upload results to codecov
+      - name: coverage
         if: success()
         run: nox -s coverage
+
+      - name: Upload results to codecov
+        if: success()
         uses: codecov/codecov-action@v2
         with:
           files: ./coverage.xml
