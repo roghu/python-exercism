@@ -22,7 +22,7 @@ jobs:
           enable-pep582: true
 
       - name: Install dependencies
-        run: pip install nox
+        run: pdm install nox
 
       - name: Tests
         run: nox -s tests
