@@ -23,17 +23,17 @@ jobs:
           python -m pip install -U pip setuptools wheel
           python -m pip install -r requirements.txt
       - name: Tests
-        run: pytest --cov src/
-        run: coverage xml
+        run: nox -s tests
 
       - name: Flake8
-        run: pytest --flake8
+        run: nox -s flake8
 
       - name: typing
-        run: pytest --mypy src/
+        run: nox -s typing
 
       - name: Upload results to codecov
         if: success()
+        run: nox -s coverage
         uses: codecov/codecov-action@v2
         with:
           files: ./coverage.xml
