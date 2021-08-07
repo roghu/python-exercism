@@ -57,9 +57,7 @@ test = [
     "pytest~=6.2",
     "pytest-cov~=2.12",
     "pytest-sugar~=0.9",
-    "pytest-xdist~=2.3",
-    "nox~=2021.6",
-]
+    "pytest-xdist~=2.3"]
 lint = [
     "flake8~=3.9",
     "pytest-flake8~=1.0",
@@ -68,6 +66,9 @@ lint = [
 typing = [
     "mypy~=0.910",
     "pytest-mypy~=0.8",
+]
+dev = [
+    "nox~=2021.6",
 ]
 [build-system]
 requires = ["pdm-pep517"]

@@ -313,7 +313,7 @@ dependencies = [
 
 [metadata]
 lock_version = "3.1"
-content_hash = "sha256:9ed20512098313be88437396110df0df842e712d063bd0fa95d15c7ded84244a"
+content_hash = "sha256:4bbe4e49632fc9dc57dda2ccfc867477e1d30026f4fd745673ea5b536caa1787"
 
 [metadata.files]
 "appdirs 1.4.4" = [
