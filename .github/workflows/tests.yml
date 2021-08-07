@@ -21,21 +21,18 @@ jobs:
           python-version: ${{ matrix.python-version }}
           enable-pep582: true
 
-      - name: Install dependencies
-        run: pdm install nox
-
       - name: Tests
-        run: nox -s tests
+        run: pdm run nox -s tests
 
       - name: Flake8
-        run: nox -s flake8
+        run: pdm run nox -s flake8
 
       - name: typing
-        run: nox -s typing
+        run: pdm run nox -s typing
 
       - name: coverage
         if: success()
-        run: nox -s coverage
+        run: pdm run nox -s coverage
 
       - name: Upload results to codecov
         if: success()
