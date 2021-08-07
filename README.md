@@ -12,10 +12,19 @@ Solutions to [exercism](https://github.com/exercism/python).
 
 ## Tests
 
+To run everything:
+
+```bash
+nox
+```
+
 To run test:
 
 ```bash
-tox
+nox -s tests
+
+# Get coverage info
+nox -s coverage
 ```
 
 ## Flake8
@@ -23,7 +32,7 @@ tox
 To run:
 
 ```bash
-tox -e flake8
+nox -s flake8
 ```
 
 ## Mypy
@@ -31,7 +40,7 @@ tox -e flake8
 To run:
 
 ```bash
-tox -e typing
+nox -s typing
 ```
 
 ## License
