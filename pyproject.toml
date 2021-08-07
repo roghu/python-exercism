@@ -1,15 +1,17 @@
 [project]
-name = "python-exercism"
-project_name = "python-exercism"
-version = "0.1.0"
-description = "Solutions to exercism exercises"
-license = { file = "LICENSE" }
-readme = "README.md"
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Roger Hughes", email = "roger@roghu.com"},
+]
+dependencies = []
 requires-python = ">=3.9"
+dynamic = ["classifiers"]
+license = {text = "MIT"}
 
-[[project.authors]]
-name = "Roger Hughes"
-email = "roger@roghu.com"
+[project.urls]
+homepage = ""
 
 [tool.black]
 target-version = ['py39']
@@ -44,5 +46,6 @@ disallow_untyped_defs = true
 ignore_missing_imports = true
 
 [build-system]
-requires = ["setuptools >= 57.4.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
+
