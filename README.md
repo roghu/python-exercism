@@ -10,6 +10,10 @@ Solutions to [exercism](https://github.com/exercism/python).
 
 * 3.9
 
+## Prerequisites
+
+* [PDM](https://pdm.fming.dev)
+
 ## Tests
 
 To run everything:
