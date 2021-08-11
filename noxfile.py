@@ -5,6 +5,7 @@ import nox
 os.environ.update({"PDM_IGNORE_SAVED_PYTHON": "1"})
 
 nox.options.reuse_existing_virtualenvs = True
+nox.options.stop_on_first_error = True
 
 
 @nox.session
