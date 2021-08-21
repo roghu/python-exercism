@@ -1,4 +1,4 @@
-from src.tournament import tally
+from src.tournament import Team, tally
 
 
 class TestTournament:
@@ -132,3 +132,24 @@ class TestTournament:
             "Devastating Donkeys            |  3 |  0 |  1 |  2 |  1",
         ]
         assert tally(results) == table
+
+
+class TestItemsNotFromExercism:
+    def test_team_str(self) -> None:
+        assert str(Team("Bob Evans")) == "Bob Evans"
+
+    def test_team_repr(self) -> None:
+        assert repr(Team("Bob Evans")) == "<Team: Bob Evans>"
+
+    def test_eq_different_classes_raise_error(self) -> None:
+        class Foo:
+            pass
+
+        foo = Foo()
+        team = Team("Bob Evans")
+        assert not team == foo
+
+    def test_eq(self) -> None:
+        t1 = Team("Bob")
+        t2 = Team("Bob")
+        assert t1 == t2
